@@ -13,12 +13,7 @@ config_version=5
 config/name="Third Space Game"
 run/main_scene="uid://cme53rpp67rt"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
-
-[display]
-
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+config/icon="res://Assets/icon.svg"
 
 [editor_plugins]
 
