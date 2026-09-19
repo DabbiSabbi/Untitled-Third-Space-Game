@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cwn2gvgajmlew"]
 
 [ext_resource type="Script" uid="uid://b8if2rfc1ahpf" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://b3prxe14rkla0" path="res://icon.svg" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://dau0ee20t52sr" path="res://Assets/Player.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://c4kkxd66vba2s" path="res://Scripts/hand.gd" id="3_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(128, 128)
+size = Vector2(112, 128)
 
 [node name="Player" type="CharacterBody2D" unique_id=1118605196]
 motion_mode = 1
@@ -15,4 +16,10 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=570051402]
 texture_filter = 1
-texture = ExtResource("2_6t5aa")
+scale = Vector2(8, 8)
+texture = ExtResource("2_cvnsp")
+
+[node name="Hand" type="Node2D" parent="." unique_id=193516953]
+position = Vector2(52, 12)
+scale = Vector2(1.0079007, 1)
+script = ExtResource("3_6t5aa")
