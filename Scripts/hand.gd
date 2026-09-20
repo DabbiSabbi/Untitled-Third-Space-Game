@@ -8,7 +8,7 @@ func _ready() -> void:
 	pass
 
 func aim():
-	look_at(get_global_mouse_position())
+	#look_at(get_global_mouse_position())
 	if player.angle >= -90 and player.angle <= 90:
 		if position.x == -7:
 			position.x = 7
@@ -17,4 +17,4 @@ func aim():
 
 	
 func _process(delta: float) -> void:
-	pass
+	aim()
