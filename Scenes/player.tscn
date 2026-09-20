@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c4kkxd66vba2s" path="res://Scripts/hand.gd" id="3_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(112, 128)
+size = Vector2(8, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=1118605196]
 motion_mode = 1
@@ -15,8 +15,8 @@ script = ExtResource("1_cvnsp")
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=570051402]
+z_index = 1
 texture_filter = 1
-scale = Vector2(8, 8)
 texture = ExtResource("2_cvnsp")
 
 [node name="Hand" type="Node2D" parent="." unique_id=193516953]
