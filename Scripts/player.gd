@@ -1,6 +1,8 @@
 extends CharacterBody2D
 var angle = 0
 const SPEED = 100
+#This is for the player inventory (hotbar)
+@export var inventory: inventory 
 
 @onready var hand: Node2D = $Hand
 

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dv88c2ooqy3op"]
+
+[ext_resource type="Script" uid="uid://f4h8kx57t52y" path="res://Inventory/inventory_ui.gd" id="1_8su62"]
+[ext_resource type="Texture2D" uid="uid://bffnxysvmd7oy" path="res://Assets/Sprites/Inv_backrd.png" id="2_os1l6"]
+[ext_resource type="Script" uid="uid://bg8kngr172vw2" path="res://Scenes/grid_container.gd" id="3_brbew"]
+[ext_resource type="PackedScene" uid="uid://b2bfb7l1jp5fn" path="res://Inventory/Inventory_slot.tscn" id="3_vr5og"]
+
+[node name="Inventory_UI" type="Control" unique_id=1135101942]
+custom_minimum_size = Vector2(122, 26)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 122.0
+offset_bottom = 26.0
+script = ExtResource("1_8su62")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1399947163]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -13.0
+offset_right = 61.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_os1l6")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=1210295978]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -10.0
+offset_right = 61.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+script = ExtResource("3_brbew")
+
+[node name="Inventory_slot1" parent="NinePatchRect/GridContainer" unique_id=1204561797 instance=ExtResource("3_vr5og")]
+layout_mode = 2
+
+[node name="Inventory_slot2" parent="NinePatchRect/GridContainer" unique_id=442905163 instance=ExtResource("3_vr5og")]
+layout_mode = 2
+
+[node name="Inventory_slot3" parent="NinePatchRect/GridContainer" unique_id=1927544023 instance=ExtResource("3_vr5og")]
+layout_mode = 2
+
+[node name="Inventory_slot4" parent="NinePatchRect/GridContainer" unique_id=1139251764 instance=ExtResource("3_vr5og")]
+layout_mode = 2
+
+[node name="Inventory_slot5" parent="NinePatchRect/GridContainer" unique_id=627767026 instance=ExtResource("3_vr5og")]
+layout_mode = 2

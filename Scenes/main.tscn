@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cwn2gvgajmlew" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://js4bmmqtgcao" path="res://Assets/Sprites/Grass (3block).png" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dv88c2ooqy3op" path="res://Scenes/inventory_ui.tscn" id="3_8gbba"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("2_bo1nx")
@@ -26,3 +27,21 @@ position = Vector2(0, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=746174040]
 zoom = Vector2(5, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=765160619]
+
+[node name="Inventory_UI" parent="CanvasLayer" unique_id=1135101942 instance=ExtResource("3_8gbba")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -113.0
+offset_right = -159.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4.4630075, 4.527692)
+size_flags_horizontal = 4
+size_flags_vertical = 8
