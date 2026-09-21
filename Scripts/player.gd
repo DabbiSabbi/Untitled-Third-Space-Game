@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var angle = 0
 const SPEED = 100
+@onready var cd: Timer = $"cooldown"
 
 @onready var hand: Node2D = $Hand
 
@@ -13,12 +14,15 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	
+
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		angle = rad_to_deg(get_angle_to(get_global_mouse_position()))
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed:
-			if hand.get_child(0):
-				if hand.get_child(0).has_method("use"):
-					hand.get_child(0).use()
+			if cd.is_stopped():
+				if hand.get_child(0):
+					if hand.get_child(0).has_method("use"):
+						hand.get_child(0).use()
+						cd.start(hand.get_child(0).cd)
