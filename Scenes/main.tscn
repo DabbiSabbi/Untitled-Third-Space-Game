@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cme53rpp67rt"]
 
+[ext_resource type="Texture2D" uid="uid://cjyxkk1vsesiw" path="res://Assets/Sprites/Slimes-Combined-Sheet.png" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cwn2gvgajmlew" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://js4bmmqtgcao" path="res://Assets/Sprites/Grass (3block).png" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dv88c2ooqy3op" path="res://Scenes/inventory_ui.tscn" id="3_8gbba"]
@@ -13,8 +14,86 @@ texture = ExtResource("2_bo1nx")
 [sub_resource type="TileSet" id="TileSet_jjvhh"]
 sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
-[node name="Main" type="Node2D" unique_id=559868657]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(336, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gbba"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21xkr"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo1nx")
+}],
+"loop": 1,
+"name": &"green-dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gbba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvhh")
+}],
+"loop": 1,
+"name": &"green-idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kry3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21xkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bp64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_344ge")
+}],
+"loop": 1,
+"name": &"green-uni-attack",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(16, 12)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1499023462]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"green-uni-attack"
+frame_progress = 0.90654355
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174711404]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_yf5fn")
 [node name="base_grass" type="TileMapLayer" parent="." unique_id=143824874]
 use_parent_material = true
 position = Vector2(0, -160)
