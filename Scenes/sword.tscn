@@ -7,7 +7,6 @@
 size = Vector2(4, 18.518532)
 
 [node name="Sword" type="Node2D" unique_id=921953013]
-visible = false
 script = ExtResource("1_6wdhb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1555102468]
