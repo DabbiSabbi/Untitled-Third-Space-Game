@@ -1,6 +1,7 @@
 extends Control
 
-@onready var inventory: inventory = preload("res://Inventory/playerinventory.tres") 
+@onready var inventory: inventory = preload("uid://v87okaswmvj8") 
+# uid for playerinventory.tres
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 func _ready():
