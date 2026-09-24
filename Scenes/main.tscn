@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cwn2gvgajmlew" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://js4bmmqtgcao" path="res://Assets/Sprites/Grass (3block).png" id="2_bo1nx"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://dv88c2ooqy3op" path="res://Inventory/Scenes/inventory_ui.tscn" id="3_8gbba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
@@ -66,6 +67,10 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(16, 12)
+=======
+[ext_resource type="PackedScene" uid="uid://dv88c2ooqy3op" path="res://Inventory/Scenes/inventory_ui.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cbd3jsukalsxs" path="res://Scenes/slime.tscn" id="4_jjvhh"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("2_bo1nx")
@@ -76,16 +81,7 @@ texture = ExtResource("2_bo1nx")
 [sub_resource type="TileSet" id="TileSet_jjvhh"]
 sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1499023462]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
-sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"green-uni-attack"
-frame_progress = 0.90654355
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174711404]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_yf5fn")
+[node name="Main" type="Node2D" unique_id=2065106313]
 
 [node name="base_grass" type="TileMapLayer" parent="." unique_id=143824874]
 use_parent_material = true
@@ -117,3 +113,6 @@ grow_vertical = 0
 scale = Vector2(4.4630075, 4.527692)
 size_flags_horizontal = 4
 size_flags_vertical = 8
+
+[node name="Slime" parent="." unique_id=1499023462 instance=ExtResource("4_jjvhh")]
+position = Vector2(-112, -6)
