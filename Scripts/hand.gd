@@ -3,7 +3,6 @@ extends Node2D
 var locked : bool
 
 # Called when the node enters the scene tree for the first time.
-@onready var sprite_2d: Sprite2D = $Sprite2D
 func _ready() -> void:
 	pass
 
