@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://f4h8kx57t52y" path="res://Inventory/inventory_ui.gd" id="1_8su62"]
 [ext_resource type="Texture2D" uid="uid://bffnxysvmd7oy" path="res://Assets/Sprites/Inv_backrd.png" id="2_os1l6"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://bg8kngr172vw2" path="res://Scenes/grid_container.gd" id="3_brbew"]
+=======
+[ext_resource type="Script" uid="uid://bg8kngr172vw2" path="res://Scripts/grid_container.gd" id="3_brbew"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://b2bfb7l1jp5fn" path="res://Inventory/Inventory_slot.tscn" id="3_vr5og"]
 
 [node name="Inventory_UI" type="Control" unique_id=1135101942]

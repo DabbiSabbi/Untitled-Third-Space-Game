@@ -1,8 +1,16 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://b2bfb7l1jp5fn"]
 
 [ext_resource type="Texture2D" uid="uid://bng7i3vsqb7ah" path="res://Assets/Sprites/Slot.png" id="1_6kxcb"]
 [ext_resource type="Script" uid="uid://ba1d5yje2k6fk" path="res://Inventory/inventory_slot.gd" id="1_b0avx"]
 [ext_resource type="Texture2D" uid="uid://bopp2megjb2tf" path="res://Assets/Sprites/Slot-highlight.png" id="3_5fqt5"]
+=======
+[gd_scene format=3 uid="uid://7h4o286jluya"]
+
+[ext_resource type="Texture2D" uid="uid://bng7i3vsqb7ah" path="res://Assets/Sprites/Slot.png" id="1_6kxcb"]
+[ext_resource type="Script" path="res://Inventory/inventory_slot.gd" id="1_b0avx"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Slot-highlight.png" id="3_5fqt5"]
+>>>>>>> Stashed changes
 
 [node name="Inventory_slot" type="Panel" unique_id=1204561797]
 self_modulate = Color(1, 1, 1, 0)
