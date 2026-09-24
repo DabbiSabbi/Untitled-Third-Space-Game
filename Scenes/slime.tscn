@@ -1,17 +1,7 @@
 [gd_scene format=3 uid="uid://cbd3jsukalsxs"]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[gd_scene format=3 uid="uid://cme53rpp67rt"]
-=======
-[gd_scene format=3 uid="uid://cbd3jsukalsxs"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://cjyxkk1vsesiw" path="res://Assets/Sprites/Slimes-Combined-Sheet.png" id="1_jjgbg"]
-=======
-[gd_scene format=3 uid="uid://d1ldsy8nqmte4"]
-
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Slimes-Combined-Sheet.png" id="1_jjgbg"]
->>>>>>> Stashed changes
+[ext_resource type="Script" uid="uid://bb5fxn52xddwc" path="res://Scripts/slime.gd" id="1_swwnm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
 atlas = ExtResource("1_jjgbg")
@@ -39,38 +29,6 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
 atlas = ExtResource("1_jjgbg")
-=======
-[gd_scene format=3 uid="uid://d1ldsy8nqmte4"]
-
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Slimes-Combined-Sheet.png" id="1_jokqx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
-atlas = ExtResource("1_jokqx")
-region = Rect2(336, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gbba"]
-atlas = ExtResource("1_jokqx")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
-atlas = ExtResource("1_jokqx")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
-atlas = ExtResource("1_jokqx")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_21xkr"]
-atlas = ExtResource("1_jokqx")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
-atlas = ExtResource("1_jokqx")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
-atlas = ExtResource("1_jokqx")
->>>>>>> Stashed changes
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
@@ -106,25 +64,41 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_344ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21xkr")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"green-uni-attack",
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 
-<<<<<<< Updated upstream
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gngh"]
+radius = 5.0
+height = 16.0
+
 [node name="Slime" type="CharacterBody2D" unique_id=1499023462]
-=======
-[node name="slime" type="CharacterBody2D" unique_id=1499023462]
->>>>>>> Stashed changes
+script = ExtResource("1_swwnm")
+damage = 25
+health = 100
+speed = 20
+range = 80
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"green-uni-attack"
-frame_progress = 0.032548673
+animation = &"green-idle"
+autoplay = "green-idle"
+frame_progress = 0.88378936
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174711404]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_g4v7s")
+[node name="Area2D" type="Area2D" parent="." unique_id=1537768592]
+
+[node name="attack" type="CollisionShape2D" parent="Area2D" unique_id=174711404]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130735877]
+position = Vector2(0, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gngh")
