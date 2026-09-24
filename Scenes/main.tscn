@@ -2,6 +2,70 @@
 
 [ext_resource type="PackedScene" uid="uid://cwn2gvgajmlew" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://js4bmmqtgcao" path="res://Assets/Sprites/Grass (3block).png" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dv88c2ooqy3op" path="res://Scenes/inventory_ui.tscn" id="3_8gbba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
+region = Rect2(336, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gbba"]
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21xkr"]
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo1nx")
+}],
+"loop": 1,
+"name": &"green-dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gbba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvhh")
+}],
+"loop": 1,
+"name": &"green-idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kry3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21xkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bp64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_344ge")
+}],
+"loop": 1,
+"name": &"green-uni-attack",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(16, 12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("2_bo1nx")
@@ -12,7 +76,16 @@ texture = ExtResource("2_bo1nx")
 [sub_resource type="TileSet" id="TileSet_jjvhh"]
 sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
-[node name="Main" type="Node2D" unique_id=559868657]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1499023462]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"green-uni-attack"
+frame_progress = 0.90654355
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174711404]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="base_grass" type="TileMapLayer" parent="." unique_id=143824874]
 use_parent_material = true
@@ -26,3 +99,21 @@ position = Vector2(0, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=746174040]
 zoom = Vector2(5, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=765160619]
+
+[node name="Inventory_UI" parent="CanvasLayer" unique_id=1135101942 instance=ExtResource("3_8gbba")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -113.0
+offset_right = -159.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4.4630075, 4.527692)
+size_flags_horizontal = 4
+size_flags_vertical = 8

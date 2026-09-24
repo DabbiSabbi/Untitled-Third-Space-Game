@@ -1,0 +1,2 @@
+# Project Tangerine
+This 2d survival game is a game where you explore, fight monsters, and ultimately survive. You must overcome night time, while monsters hunt you down. But, make sure to look at your surroundings are because there can be some useful resources. Which can be used for many important items across your journey. We plan to make more night time features, making the night be more dangerous but have better resources. Also, we are planning to add many more enemies that can hunt you down throughout your journey. Maybe a couple bosses.

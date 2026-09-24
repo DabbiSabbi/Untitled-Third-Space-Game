@@ -7,7 +7,14 @@
 size = Vector2(4, 18.518532)
 
 [node name="Sword" type="Node2D" unique_id=921953013]
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
 visible = false
+=======
+z_index = 1
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 script = ExtResource("1_6wdhb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1555102468]
@@ -25,3 +32,6 @@ position = Vector2(8, -9.536743e-07)
 rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 texture = ExtResource("2_6wdhb")
+
+[node name="cd" type="Timer" parent="." unique_id=1329727216]
+one_shot = true

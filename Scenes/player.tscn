@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8if2rfc1ahpf" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dau0ee20t52sr" path="res://Assets/Player.png" id="2_cvnsp"]
+[ext_resource type="Resource" uid="uid://v87okaswmvj8" path="res://Inventory/playerinventory.tres" id="2_fkybt"]
 [ext_resource type="Script" uid="uid://c4kkxd66vba2s" path="res://Scripts/hand.gd" id="3_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://cul3pke6ls0bd" path="res://Scenes/sword.tscn" id="4_vgqql"]
 
@@ -11,6 +12,7 @@ size = Vector2(8, 16)
 [node name="Player" type="CharacterBody2D" unique_id=1118605196]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
+inventory = ExtResource("2_fkybt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=563436683]
 shape = SubResource("RectangleShape2D_g4v7s")
@@ -26,3 +28,4 @@ scale = Vector2(1.0079007, 1)
 script = ExtResource("3_6t5aa")
 
 [node name="Sword" parent="Hand" unique_id=921953013 instance=ExtResource("4_vgqql")]
+scale = Vector2(0.4, 0.4)
