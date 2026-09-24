@@ -29,6 +29,3 @@ script = ExtResource("3_6t5aa")
 
 [node name="Sword" parent="Hand" unique_id=921953013 instance=ExtResource("4_vgqql")]
 scale = Vector2(0.4, 0.4)
-
-[node name="cooldown" type="Timer" parent="." unique_id=1957885495]
-one_shot = true
