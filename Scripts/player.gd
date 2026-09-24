@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player
 var angle = 0
 const SPEED = 100
 @onready var cd: Timer = $"cooldown"
