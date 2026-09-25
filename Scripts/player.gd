@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player
 var angle = 0
 const SPEED = 100
 #This is for the player inventory (hotbar)

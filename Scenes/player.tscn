@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(8, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=1118605196]
+[node name="Player" type="CharacterBody2D" unique_id=1118605196 groups=["Player"]]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
 inventory = ExtResource("2_fkybt")
