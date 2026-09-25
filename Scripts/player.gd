@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name player
 var angle = 0
 const SPEED = 100
+@export var maxhp = 100
+var hp = maxhp
 #This is for the player inventory (hotbar)
 @export var inventory: inventory 
 
@@ -25,3 +27,11 @@ func _input(event: InputEvent) -> void:
 			if hand.get_child(0):
 				if hand.get_child(0).has_method("use"):
 					hand.get_child(0).use()
+
+func hp_update(amt):
+#	Use For Healing and Damage
+	print("HP", hp)
+	hp = clampi(hp + amt, 0, maxhp) 
+	if hp == 0:
+		print("Player Dead")
+		$Sprite2D.skew = -100
