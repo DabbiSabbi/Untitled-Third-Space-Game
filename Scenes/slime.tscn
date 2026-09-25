@@ -49,7 +49,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jjvhh")
 }],
 "loop": 1,
-"name": &"green-idle",
+"name": &"green-idle&walk",
 "speed": 3.0
 }, {
 "frames": [{
@@ -80,25 +80,34 @@ radius = 5.0
 height = 16.0
 
 [node name="Slime" type="CharacterBody2D" unique_id=1499023462]
+motion_mode = 1
 script = ExtResource("1_swwnm")
 damage = 25
 health = 100
 speed = 20
 range = 80
+cd = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"green-idle"
-autoplay = "green-idle"
-frame_progress = 0.88378936
+animation = &"green-uni-attack"
+autoplay = "green-idle&walk"
+frame = 4
+frame_progress = 1.0
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1537768592]
+[node name="AttackArea" type="Area2D" parent="." unique_id=1537768592]
 
-[node name="attack" type="CollisionShape2D" parent="Area2D" unique_id=174711404]
+[node name="AttackAreaCol" type="CollisionShape2D" parent="AttackArea" unique_id=174711404]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_yf5fn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130735877]
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=2130735877]
 position = Vector2(0, 3)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_3gngh")
+
+[node name="cdt" type="Timer" parent="." unique_id=1126370735]
+one_shot = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
