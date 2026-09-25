@@ -84,7 +84,7 @@ motion_mode = 1
 script = ExtResource("1_swwnm")
 damage = 25
 health = 100
-speed = 20
+speed = 80
 range = 80
 cd = 1
 
