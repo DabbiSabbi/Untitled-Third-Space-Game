@@ -30,7 +30,6 @@ func _input(event: InputEvent) -> void:
 
 func hp_update(amt):
 #	Use For Healing and Damage
-	print("HP", hp)
 	hp = clampi(hp + amt, 0, maxhp) 
 	if hp == 0:
 		print("Player Dead")
