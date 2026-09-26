@@ -83,9 +83,9 @@ height = 16.0
 motion_mode = 1
 script = ExtResource("1_swwnm")
 damage = 25
-health = 100
+maxhp = 90
 speed = 80
-range = 80
+range = 100
 cd = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
