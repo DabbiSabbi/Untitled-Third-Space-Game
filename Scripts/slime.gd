@@ -12,8 +12,11 @@ var attacking : bool
 @export var range : int # range for enemy to attack player in pixels.
 @export var cd : int # attack cooldown in seconds always less than attack animation time.
 @export var regen : int
-var hp : int = maxhp
+var hp : int
 func _ready() -> void:
+	hp = maxhp
+	print("Slime Max Hp: ", maxhp)
+	print("Slime Hp: ", hp)
 	if get_tree().get_first_node_in_group("Player"):
 		player = get_tree().get_first_node_in_group("Player")
 
@@ -58,6 +61,20 @@ func hp_update(amt):
 #	Use For Healing and Damage
 	print("HP", hp)
 	hp = clampi(hp + amt, 0, maxhp) 
+	if amt < 0:
+		if hp > 0:
+			var damaged = create_tween()
+			damaged.tween_property(ani, "modulate", Color(1, 0, 0), 0.2)
+			damaged.tween_property(ani, "modulate", Color(1, 1, 1), 0.05)
+		else:
+			var damaged = create_tween()
+			damaged.tween_property(attack_area, "monitoring", false, 0)
+			damaged.tween_property(ani, "modulate", Color(1, 0, 0), 0.2)
+			set_physics_process(false)
+			await damaged.finished
+
 	if hp == 0:
+		ani.animation = "green-dead"
+		await get_tree().create_timer(0.4).timeout
 		print("Slime Dead")
-		$Sprite2D.skew = -100
+		queue_free()
