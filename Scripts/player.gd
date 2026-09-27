@@ -1,12 +1,11 @@
 extends CharacterBody2D
 class_name player
 var angle = 0
-const SPEED = 100
+const SPEED = 80
 @export var maxhp = 100
 var hp = maxhp
 #This is for the player inventory (hotbar)
 @export var inventory: inventory 
-
 @onready var hand: Node2D = $Hand
 
 func _physics_process(delta: float) -> void:
