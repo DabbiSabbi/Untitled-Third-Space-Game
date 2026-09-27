@@ -34,12 +34,6 @@ zoom = Vector2(5, 5)
 
 [node name="player_UI" type="CanvasLayer" parent="." unique_id=765160619]
 
-[node name="Inventory_UI" parent="CanvasLayer" unique_id=1135101942 instance=ExtResource("3_8gbba")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
 [node name="Inventory_UI" parent="player_UI" unique_id=1135101942 instance=ExtResource("3_8gbba")]
 offset_left = -281.0
 offset_top = -113.0
@@ -49,18 +43,17 @@ scale = Vector2(4.4630075, 4.527692)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="hp_bar" parent="player_UI" unique_id=310375773 instance=ExtResource("4_21xkr")]
-[node name="hp_bar" parent="CanvasLayer" unique_id=310375773 instance=ExtResource("4_21xkr")]
+[node name="death_screen" parent="player_UI" unique_id=1212788433 instance=ExtResource("5_6bp64")]
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="hp_bar" parent="player_UI" unique_id=174247829 instance=ExtResource("4_21xkr")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(3, 3)
-
-[node name="death_screen" parent="player_UI" unique_id=1212788433 instance=ExtResource("5_6bp64")]
-offset_left = 1.0
-offset_right = 1.0
 
 [node name="Slime" parent="." unique_id=1499023462 instance=ExtResource("4_jjvhh")]
 position = Vector2(-112, -6)
