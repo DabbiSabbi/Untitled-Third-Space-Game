@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var target_pos = player.global_position
-	if global_position.distance_to(target_pos) < attack_area.get_child(0).shape.radius * 1.5: #to stop when close to player
+	if global_position.distance_to(target_pos) < attack_area.get_child(0).shape.radius * 1.2: #to stop when close to player
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.7)
 		ani.speed_scale = 1
 	elif global_position.distance_to(target_pos) < range: # to walk towards player when player is in range
