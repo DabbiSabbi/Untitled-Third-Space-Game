@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bp3iapk5f7wk4" path="res://Assets/Sprites/T1-Sword.png" id="2_6wdhb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(4, 18.518532)
+size = Vector2(5.412674, 19.444454)
 
 [node name="Sword" type="Node2D" unique_id=921953013]
 z_index = 1
@@ -12,13 +12,13 @@ script = ExtResource("1_6wdhb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1555102468]
 position = Vector2(15, 0)
+monitoring = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=758029926]
-position = Vector2(0, -5.684342e-14)
+position = Vector2(0.5, 2.185563e-08)
 rotation = 1.5707964
 scale = Vector2(1.1085094, 1.0799993)
 shape = SubResource("RectangleShape2D_g4v7s")
-disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=313241614]
 position = Vector2(8, -9.536743e-07)
@@ -28,3 +28,5 @@ texture = ExtResource("2_6wdhb")
 
 [node name="cd" type="Timer" parent="." unique_id=1329727216]
 one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

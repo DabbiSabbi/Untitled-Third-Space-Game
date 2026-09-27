@@ -1,14 +1,22 @@
 extends GridContainer
-var current_slot = 0
+var current_slot : int
 
 func _ready() -> void:
 	print("Loaded")
 
 func slot_selection(a,b):
 	if Input.is_action_just_pressed(a):
-		get_child(current_slot).slot_high.visible = false
-		get_child(b).slot_select()
-		current_slot = b
+		if current_slot == 6:
+			get_child(b).slot_select()
+			current_slot = b
+		elif current_slot == b:
+			get_child(current_slot).slot_high.visible = false
+			current_slot = 6
+		else:
+			get_child(current_slot).slot_high.visible = false
+			get_child(b).slot_select()
+			current_slot = b
+
 
 func _process(delta):
 	slot_selection("slot_1", 0)
