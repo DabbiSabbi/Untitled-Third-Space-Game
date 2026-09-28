@@ -17,6 +17,7 @@ func aim():
 
 	
 func _process(delta: float) -> void:
-	if get_child(0) and "locked" in get_child(0):
-		locked = get_child(0).locked
-	aim()
+	if get_child_count() > 0:
+		if get_child(0) and "locked" in get_child(0):
+			locked = get_child(0).locked
+		aim()

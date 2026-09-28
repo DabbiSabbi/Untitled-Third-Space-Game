@@ -31,7 +31,10 @@ func _input(event: InputEvent) -> void:
 					hand.get_child(0).use()
 
 func held_item(s):
+	print(s)
 	print(hand.get_children())
+	if s == null and hand.get_child_count() > 0:
+		hand.get_child(0).queue_free()
 	if hand.get_child_count() > 0:
 		hand.get_child(0).queue_free()
 	if s:
