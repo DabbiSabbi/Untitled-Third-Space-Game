@@ -8,8 +8,8 @@ radius = 9.333334
 height = 38.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vwjc"]
-radius = 6.0
-height = 18.0
+radius = 4.0
+height = 14.666668
 
 [node name="Tree" type="Node2D" unique_id=882060445]
 z_index = 1
@@ -28,7 +28,7 @@ shape = SubResource("CapsuleShape2D_rsuno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1916642041]
 z_index = 1
-position = Vector2(0, 11)
+position = Vector2(-0.6666667, 12)
 shape = SubResource("CapsuleShape2D_0vwjc")
 
 [connection signal="body_entered" from="x-ray" to="." method="_on_xray_body_entered"]
