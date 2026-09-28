@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hwl2u2ggh8gc"]
 
-[ext_resource type="Script" uid="uid://cbvsqqlgb3k8y" path="res://Scripts/axe.gd" id="1_7dk8h"]
-[ext_resource type="Texture2D" uid="uid://c60i7ylfaafj8" path="res://Assets/Sprites/Axe.png" id="1_ik4le"]
+[ext_resource type="Script" uid="uid://cbvsqqlgb3k8y" path="res://Scripts/Tools/axe.gd" id="1_7dk8h"]
+[ext_resource type="Texture2D" uid="uid://c60i7ylfaafj8" path="res://Assets/Sprites/Items/Axe.png" id="1_ik4le"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dk8h"]
 size = Vector2(6.765843, 6.1728435)

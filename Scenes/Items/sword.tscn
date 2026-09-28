@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://cul3pke6ls0bd"]
 
-<<<<<<<< HEAD:Scenes/Tools/sword.tscn
-[ext_resource type="Script" uid="uid://d2iex6hffo77j" path="res://Scripts/sword.gd" id="1_6wdhb"]
-[ext_resource type="Texture2D" uid="uid://crsec1av4y5oa" path="res://Assets/Sprites/SwordV2.png" id="2_3fxqd"]
-========
 [ext_resource type="Script" uid="uid://d2iex6hffo77j" path="res://Scripts/Tools/sword.gd" id="1_6wdhb"]
-[ext_resource type="Texture2D" uid="uid://bp3iapk5f7wk4" path="res://Assets/Sprites/Items/T1-Sword.png" id="2_6wdhb"]
->>>>>>>> master:Scenes/Items/sword.tscn
+[ext_resource type="Texture2D" uid="uid://crsec1av4y5oa" path="res://Assets/Sprites/SwordV2.png" id="2_itn8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(4.510562, 13.888897)
@@ -30,7 +25,7 @@ shape = SubResource("RectangleShape2D_g4v7s")
 position = Vector2(9.000001, 3.5762764e-07)
 rotation = 0.7853982
 scale = Vector2(0.9999999, 0.9999999)
-texture = ExtResource("2_3fxqd")
+texture = ExtResource("2_itn8i")
 
 [node name="cd" type="Timer" parent="." unique_id=1329727216]
 one_shot = true

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://nxr7gue4n5d1"]
 
-[ext_resource type="Texture2D" uid="uid://ccmjcictqfuku" path="res://Assets/Sprites/Tree (M).png" id="1_0vwjc"]
-[ext_resource type="Script" uid="uid://biwnfx8j616os" path="res://Scenes/tree.gd" id="1_rsuno"]
+[ext_resource type="Texture2D" uid="uid://ccmjcictqfuku" path="res://Assets/Sprites/Greenery/Tree (M).png" id="1_0vwjc"]
+[ext_resource type="Script" uid="uid://biwnfx8j616os" path="res://Scripts/tree.gd" id="1_rsuno"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rsuno"]
 radius = 9.333334
 height = 38.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vwjc"]
-radius = 4.0
-height = 14.666668
+radius = 4.666666
+height = 9.333332
 
 [node name="Tree" type="Node2D" unique_id=882060445]
 z_index = 1
@@ -28,7 +28,7 @@ shape = SubResource("CapsuleShape2D_rsuno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1916642041]
 z_index = 1
-position = Vector2(-0.6666667, 12)
+position = Vector2(0, 13.333334)
 shape = SubResource("CapsuleShape2D_0vwjc")
 
 [connection signal="body_entered" from="x-ray" to="." method="_on_xray_body_entered"]
