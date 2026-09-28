@@ -12,6 +12,8 @@ radius = 5.9999995
 height = 14.666666
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vwjc"]
+radius = 4.0
+height = 14.666668
 radius = 4.666666
 height = 9.333332
 
@@ -41,6 +43,7 @@ shape = SubResource("CapsuleShape2D_l7sa7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1916642041]
 z_index = 1
+position = Vector2(-0.6666667, 12)
 position = Vector2(0, 13.333334)
 shape = SubResource("CapsuleShape2D_0vwjc")
 
