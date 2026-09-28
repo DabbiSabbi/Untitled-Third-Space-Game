@@ -2,7 +2,7 @@ extends GridContainer
 var current_slot : int
 
 func _ready() -> void:
-	print("Loaded")
+	pass
 
 func slot_selection(a,b):
 	if Input.is_action_just_pressed(a):
