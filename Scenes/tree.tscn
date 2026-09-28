@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://nxr7gue4n5d1"]
+
+[ext_resource type="Texture2D" uid="uid://ccmjcictqfuku" path="res://Assets/Sprites/Tree (M).png" id="1_0vwjc"]
+[ext_resource type="Script" uid="uid://biwnfx8j616os" path="res://Scenes/tree.gd" id="1_rsuno"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rsuno"]
+radius = 9.333334
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vwjc"]
+radius = 6.0
+height = 18.0
+
+[node name="Tree" type="Node2D" unique_id=882060445]
+z_index = 1
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_rsuno")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=699525658]
+texture = ExtResource("1_0vwjc")
+
+[node name="x-ray" type="Area2D" parent="." unique_id=1553572623]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="x-ray" unique_id=2143617673]
+position = Vector2(-0.6666666, -7.3333335)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rsuno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1916642041]
+z_index = 1
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_0vwjc")
+
+[connection signal="body_entered" from="x-ray" to="." method="_on_xray_body_entered"]
+[connection signal="body_exited" from="x-ray" to="." method="_on_xray_body_exited"]
