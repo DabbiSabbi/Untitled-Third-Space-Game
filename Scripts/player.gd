@@ -1,12 +1,11 @@
 extends CharacterBody2D
 class_name player
 var angle = 0
-const SPEED = 100
+const SPEED = 80
 @export var maxhp = 100
 var hp = maxhp
 #This is for the player inventory (hotbar)
 @export var inventory: inventory 
-
 @onready var hand: Node2D = $Hand
 
 func _physics_process(delta: float) -> void:
@@ -27,6 +26,14 @@ func _input(event: InputEvent) -> void:
 			if hand.get_child(0):
 				if hand.get_child(0).has_method("use"):
 					hand.get_child(0).use()
+
+func held_item(s):
+	print(hand.get_children())
+	if hand.get_child_count() > 0:
+		hand.get_child(0).queue_free()
+	if s:
+		var item = s.instantiate()
+		hand.add_child(item)
 
 func hp_update(amt):
 #	Use For Healing and Damage
