@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://hwl2u2ggh8gc"]
+
+[ext_resource type="Script" uid="uid://cbvsqqlgb3k8y" path="res://Scripts/axe.gd" id="1_7dk8h"]
+[ext_resource type="Texture2D" uid="uid://c60i7ylfaafj8" path="res://Assets/Sprites/Axe.png" id="1_ik4le"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dk8h"]
+size = Vector2(6.765843, 6.1728435)
+
+[node name="Axe" type="Node2D" unique_id=1506424926]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_7dk8h")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1332126357]
+position = Vector2(15, 0)
+monitoring = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1697991646]
+position = Vector2(-5, 4.583334)
+rotation = 1.5707964
+scale = Vector2(1.108509, 1.0799991)
+shape = SubResource("RectangleShape2D_7dk8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1804566650]
+position = Vector2(7, 1.0000001)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("1_ik4le")
+
+[node name="cd" type="Timer" parent="." unique_id=725301023]
+one_shot = true
