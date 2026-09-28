@@ -7,11 +7,15 @@
 radius = 9.333334
 height = 38.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7sa7"]
+radius = 5.9999995
+height = 14.666666
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vwjc"]
 radius = 4.666666
 height = 9.333332
 
-[node name="Tree" type="Node2D" unique_id=882060445]
+[node name="Tree" type="StaticBody2D" unique_id=568366620]
 z_index = 1
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_rsuno")
@@ -21,15 +25,26 @@ texture = ExtResource("1_0vwjc")
 
 [node name="x-ray" type="Area2D" parent="." unique_id=1553572623]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="x-ray" unique_id=2143617673]
+[node name="Leaves" type="CollisionShape2D" parent="x-ray" unique_id=2143617673]
 position = Vector2(-0.6666666, -7.3333335)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_rsuno")
+
+[node name="Bush" type="CollisionShape2D" parent="x-ray" unique_id=1783660060]
+position = Vector2(0, 1.3333325)
+rotation = -3.1415925
+shape = SubResource("CapsuleShape2D_l7sa7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1916642041]
 z_index = 1
 position = Vector2(0, 13.333334)
 shape = SubResource("CapsuleShape2D_0vwjc")
+
+[node name="destruction" type="Area2D" parent="." unique_id=1178009281]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="destruction" unique_id=2114793934]
+position = Vector2(0, 9.333333)
+shape = SubResource("CapsuleShape2D_g4v7s")
 
 [connection signal="body_entered" from="x-ray" to="." method="_on_xray_body_entered"]
 [connection signal="body_exited" from="x-ray" to="." method="_on_xray_body_exited"]
