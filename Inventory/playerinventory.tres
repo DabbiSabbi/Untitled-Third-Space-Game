@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dnxae6pcgvc68" path="res://Inventory/Scripts/Inventory_item.gd" id="1_oqpsp"]
 [ext_resource type="Resource" uid="uid://coopoc1i84hpr" path="res://Inventory/Items/Sword.tres" id="2_oqpsp"]
+[ext_resource type="Resource" uid="uid://cqnw40wax3lnx" path="res://Inventory/Items/Axe.tres" id="3_amcam"]
 [ext_resource type="Script" uid="uid://djng12qa6ntgn" path="res://Inventory/Scripts/Inventory.gd" id="3_wq1fa"]
+[ext_resource type="Resource" uid="uid://dx4apevx6bwcf" path="res://Inventory/Items/berries.tres" id="4_to21c"]
 
 [resource]
 script = ExtResource("3_wq1fa")
-items = Array[ExtResource("1_oqpsp")]([ExtResource("2_oqpsp"), null, null, null, null])
+items = Array[ExtResource("1_oqpsp")]([ExtResource("2_oqpsp"), ExtResource("3_amcam"), ExtResource("4_to21c"), null, null])
 metadata/_custom_type_script = "uid://djng12qa6ntgn"

@@ -1,8 +1,10 @@
 extends GridContainer
 var current_slot : int
+var player : CharacterBody2D
 
 func _ready() -> void:
-	pass
+	if get_tree().get_first_node_in_group("Player"):
+		player = get_tree().get_first_node_in_group("Player")
 
 func slot_selection(a,b):
 	if Input.is_action_just_pressed(a):
@@ -11,6 +13,7 @@ func slot_selection(a,b):
 			current_slot = b
 		elif current_slot == b:
 			get_child(current_slot).slot_high.visible = false
+			player.held_item(null)
 			current_slot = 6
 		else:
 			get_child(current_slot).slot_high.visible = false
