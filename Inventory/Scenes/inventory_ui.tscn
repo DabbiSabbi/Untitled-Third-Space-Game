@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dv88c2ooqy3op"]
 
 [ext_resource type="Script" uid="uid://f4h8kx57t52y" path="res://Inventory/Scripts/inventory_ui.gd" id="1_ew80f"]
-[ext_resource type="Texture2D" uid="uid://bffnxysvmd7oy" path="res://Assets/Sprites/Inv_backrd.png" id="2_2em4a"]
+[ext_resource type="Texture2D" uid="uid://bffnxysvmd7oy" path="res://Assets/Sprites/Player Related/Inv_backrd.png" id="2_2em4a"]
 [ext_resource type="Script" uid="uid://bg8kngr172vw2" path="res://Inventory/Scripts/grid_container.gd" id="3_yetw6"]
 [ext_resource type="PackedScene" uid="uid://7h4o286jluya" path="res://Inventory/Scenes/Inventory_slot.tscn" id="4_req5v"]
 

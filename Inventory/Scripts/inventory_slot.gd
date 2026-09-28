@@ -25,5 +25,4 @@ func update(item: inventoryitem):
 func slot_select():
 	slot_high.visible = true
 	if playerv:
-		print(item_scene)
 		playerv.held_item(item_scene)

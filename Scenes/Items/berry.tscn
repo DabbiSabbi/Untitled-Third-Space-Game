@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://da38bj7ameno2"]
+
+[ext_resource type="Script" uid="uid://cq1vuqafehcru" path="res://Scripts/Item/berry.gd" id="1_g25s4"]
+[ext_resource type="Texture2D" uid="uid://y0k8uhme2gmw" path="res://Assets/Sprites/Items/Berries (item).png" id="2_g25s4"]
+
+[node name="Berry" type="Node2D" unique_id=605181684]
+script = ExtResource("1_g25s4")
+
+[node name="Berries(item)" type="Sprite2D" parent="." unique_id=1527194939]
+z_index = 2
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_g25s4")
