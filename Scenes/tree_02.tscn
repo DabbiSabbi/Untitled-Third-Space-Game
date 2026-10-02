@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ceihot1l8ci8y"]
 
-[ext_resource type="Texture2D" uid="uid://ccmjcictqfuku" path="res://Assets/Sprites/Greenery/Tree (M).png" id="1_hpdar"]
-[ext_resource type="Script" path="res://Scripts/World/tree.gd" id="1_hxlyh"]
+[ext_resource type="Script" uid="uid://bmywixwbthvei" path="res://Scripts/World/tree.gd" id="1_hxlyh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 6.0
@@ -22,7 +21,6 @@ radius = 6.0
 script = ExtResource("1_hxlyh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=862686615]
-texture = ExtResource("1_hpdar")
 
 [node name="destruction" type="Area2D" parent="." unique_id=706563547]
 
