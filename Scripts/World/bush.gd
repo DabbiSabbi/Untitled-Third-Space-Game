@@ -15,7 +15,6 @@ var growth_timer : float
 func growtick():
 	growth += 1
 	pity = 0
-	print(growth)
 
 func berriestex():
 	if randi_range(1, 2) == 1:

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://2081oaiqdqs7" path="res://Scenes/Player Related/hp_bar.tscn" id="5_1pvyk"]
 [ext_resource type="PackedScene" uid="uid://cbd3jsukalsxs" path="res://Scenes/World/slime.tscn" id="6_t55t5"]
 [ext_resource type="PackedScene" uid="uid://dpqswpmen7t5r" path="res://Scenes/World/bush.tscn" id="7_g3oxa"]
-[ext_resource type="PackedScene" uid="uid://nxr7gue4n5d1" path="res://Scenes/World/tree.tscn" id="8_ombbc"]
+[ext_resource type="PackedScene" uid="uid://dhosmmxdusbha" path="res://Scenes/World/tree_02.tscn" id="8_ombbc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("1_wpgpo")

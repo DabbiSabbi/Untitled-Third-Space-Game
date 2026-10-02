@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://da38bj7ameno2"]
 
-[ext_resource type="Script" uid="uid://cq1vuqafehcru" path="res://Scripts/Item/berry.gd" id="1_g25s4"]
+[ext_resource type="Script" uid="uid://cq1vuqafehcru" path="res://Scripts/Item/Food/berry.gd" id="1_g25s4"]
 [ext_resource type="Texture2D" uid="uid://y0k8uhme2gmw" path="res://Assets/Sprites/Items/Berries (item).png" id="2_g25s4"]
 
 [node name="Berry" type="Node2D" unique_id=605181684]
