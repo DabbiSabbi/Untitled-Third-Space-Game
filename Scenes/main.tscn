@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbd3jsukalsxs" path="res://Scenes/slime.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cf76pp5po5dba" path="res://Scenes/death_screen.tscn" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://dpqswpmen7t5r" path="res://Scenes/bush.tscn" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://nxr7gue4n5d1" path="res://Scenes/tree.tscn" id="6_344ge"]
+[ext_resource type="PackedScene" uid="uid://ceihot1l8ci8y" path="res://Scenes/tree_02.tscn" id="6_21xkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("2_bo1nx")
@@ -65,5 +65,6 @@ position = Vector2(-112, -6)
 [node name="Bush" parent="." unique_id=2125034877 instance=ExtResource("5_kry3j")]
 position = Vector2(68, -15)
 
-[node name="Tree" parent="." unique_id=882060445 instance=ExtResource("6_344ge")]
-position = Vector2(146, -73)
+[node name="Tree-02" parent="." unique_id=301017597 instance=ExtResource("6_21xkr")]
+position = Vector2(119, -123)
+script = null
