@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2081oaiqdqs7"]
 
-[ext_resource type="Script" uid="uid://d1lm74q2gbq4y" path="res://hp_bar.gd" id="1_a6djc"]
+[ext_resource type="Script" uid="uid://d1lm74q2gbq4y" path="res://Scripts/Player Related/hp_bar.gd" id="1_a6djc"]
 [ext_resource type="Texture2D" uid="uid://dfawsngd4p85i" path="res://Assets/Sprites/Player Related/Health UI.png" id="2_jc3dn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6djc"]
