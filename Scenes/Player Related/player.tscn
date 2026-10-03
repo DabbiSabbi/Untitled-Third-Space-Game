@@ -1,52 +1,33 @@
 [gd_scene format=3 uid="uid://cwn2gvgajmlew"]
 
-[ext_resource type="Script" uid="uid://cwddx8y34t7eu" path="res://Scripts/World/tree_02.gd" id="1_ombvs"]
-[ext_resource type="Texture2D" uid="uid://ccmjcictqfuku" path="res://Assets/Sprites/Greenery/Tree (M).png" id="2_tqmeg"]
+[ext_resource type="Script" uid="uid://b8if2rfc1ahpf" path="res://Scripts/Player Related/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dau0ee20t52sr" path="res://Assets/Sprites/Player Related/Player.png" id="2_cvnsp"]
+[ext_resource type="Resource" uid="uid://v87okaswmvj8" path="res://Inventory/playerinventory.tres" id="2_fkybt"]
+[ext_resource type="Script" uid="uid://c4kkxd66vba2s" path="res://Scripts/Player Related/hand.gd" id="3_6t5aa"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
-radius = 6.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(8, 16)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0u6y"]
-radius = 9.0
-height = 32.0
+[node name="Player" type="CharacterBody2D" unique_id=1118605196 groups=["Player"]]
+motion_mode = 1
+script = ExtResource("1_cvnsp")
+inventory = ExtResource("2_fkybt")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57qmd"]
-radius = 5.0
-height = 14.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=563436683]
+shape = SubResource("RectangleShape2D_g4v7s")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 6.0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=570051402]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_cvnsp")
 
-[node name="Tree-02" type="StaticBody2D" unique_id=301017597]
-script = ExtResource("1_ombvs")
+[node name="Hand" type="Node2D" parent="." unique_id=193516953]
+position = Vector2(7, 2)
+scale = Vector2(1.0079007, 1)
+script = ExtResource("3_6t5aa")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=862686615]
-texture = ExtResource("2_tqmeg")
+[node name="hunger_loss" type="Timer" parent="." unique_id=417156276]
+wait_time = 25.0
+autostart = true
 
-[node name="destruction" type="Area2D" parent="." unique_id=706563547]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="destruction" unique_id=1342884425]
-position = Vector2(0, 8)
-shape = SubResource("CapsuleShape2D_g4v7s")
-debug_color = Color(0.877386, 0, 0, 0.41960785)
-
-[node name="xray" type="Area2D" parent="." unique_id=1499320830]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="xray" unique_id=1634650741]
-position = Vector2(0, -7)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_d0u6y")
-debug_color = Color(0.7882353, 0.8627451, 0, 0.41960785)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="xray" unique_id=1883426775]
-position = Vector2(0, 8)
-shape = SubResource("CapsuleShape2D_57qmd")
-debug_color = Color(0.7882353, 0.8627451, 0, 0.41960785)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003096718]
-position = Vector2(0, 15)
-shape = SubResource("CircleShape2D_g4v7s")
-
-[connection signal="body_entered" from="xray" to="." method="_on_xray_body_entered"]
-[connection signal="body_exited" from="xray" to="." method="_on_xray_body_exited"]
+[connection signal="timeout" from="hunger_loss" to="." method="_on_hunger_loss_timeout"]
