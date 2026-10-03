@@ -31,16 +31,17 @@ z_index = 1
 position = Vector2(0, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=746174040]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
+position_smoothing_speed = 50.0
 
 [node name="player_UI" type="CanvasLayer" parent="." unique_id=765160619]
 
 [node name="Inventory_UI" parent="player_UI" unique_id=1135101942 instance=ExtResource("3_w7l72")]
-offset_left = -281.0
-offset_top = -113.0
-offset_right = -159.0
-offset_bottom = -87.0
-scale = Vector2(4.4630075, 4.527692)
+offset_left = -122.0
+offset_top = -52.0
+offset_right = 0.0
+offset_bottom = -26.0
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
@@ -57,7 +58,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 
 [node name="Slime" parent="." unique_id=1499023462 instance=ExtResource("6_t55t5")]
 position = Vector2(-112, -6)
