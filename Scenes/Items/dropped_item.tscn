@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://hdt3kbyctwe4"]
+
+[ext_resource type="Script" uid="uid://b5jkkfp58y58y" path="res://Scripts/Item/dropped_item.gd" id="1_qg7x7"]
+[ext_resource type="Texture2D" uid="uid://dmq5m4ky0iigl" path="res://Assets/Sprites/Items/Shadow.png" id="2_allw1"]
+[ext_resource type="Script" uid="uid://dki3ivj6gsycp" path="res://Scripts/Player Related/interact.gd" id="4_3ugtw"]
+[ext_resource type="FontFile" uid="uid://bg5kvbxo7q10j" path="res://Assets/Fonts/superstar_memesbruh03.ttf" id="5_bravf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_grihl"]
+size = Vector2(8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 13.0
+
+[node name="dropped item" type="Node2D" unique_id=750846164]
+script = ExtResource("1_qg7x7")
+
+[node name="item" type="Sprite2D" parent="." unique_id=2081255069]
+z_index = 1
+scale = Vector2(0.8, 0.8)
+texture = SubResource("PlaceholderTexture2D_grihl")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1045009780]
+modulate = Color(1, 1, 1, 0.50980395)
+position = Vector2(1, 5)
+texture = ExtResource("2_allw1")
+
+[node name="stackpickup" type="Area2D" parent="." unique_id=811074333]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stackpickup" unique_id=1785379900]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="pickup" type="Area2D" parent="." unique_id=852520356]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup" unique_id=339351098]
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="Interact" type="Control" parent="." unique_id=129819919]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_3ugtw")
+action_name = "Pickup"
+action_button = "F"
+
+[node name="Label" type="Label" parent="Interact" unique_id=1646631185]
+layout_mode = 0
+offset_left = -6.9999995
+offset_top = -7.0
+offset_right = 34.0
+offset_bottom = 9.0
+scale = Vector2(0.35, 0.35)
+theme_override_colors/font_color = Color(1, 0.7294118, 0.12156863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_bravf")
+theme_override_font_sizes/font_size = 8
+text = "[F] Pickup"
+horizontal_alignment = 1
+vertical_alignment = 1
