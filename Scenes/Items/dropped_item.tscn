@@ -19,12 +19,14 @@ script = ExtResource("1_qg7x7")
 
 [node name="item" type="Sprite2D" parent="." unique_id=2081255069]
 z_index = 1
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.6, 0.6)
 texture = SubResource("PlaceholderTexture2D_grihl")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=1045009780]
+visible = false
 modulate = Color(1, 1, 1, 0.50980395)
-position = Vector2(1, 5)
+position = Vector2(1, 4)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_allw1")
 
 [node name="stackpickup" type="Area2D" parent="." unique_id=811074333]
@@ -40,6 +42,7 @@ visible = false
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="Interact" type="Control" parent="." unique_id=129819919]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
