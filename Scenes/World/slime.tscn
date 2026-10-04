@@ -238,13 +238,13 @@ motion_mode = 1
 script = ExtResource("1_swwnm")
 damage = 25
 maxhp = 90
-speed = 70
+speed = 65
 range = 100
 cd = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"g-up"
+animation = &"g-attack"
 autoplay = "g-idle"
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1537768592]
