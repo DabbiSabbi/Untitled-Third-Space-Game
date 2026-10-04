@@ -9,3 +9,5 @@ script = ExtResource("1_munge")
 name = "Berries"
 texture = ExtResource("2_c7mcq")
 scene = ExtResource("1_c7mcq")
+stackable = true
+maxquantity = 32
