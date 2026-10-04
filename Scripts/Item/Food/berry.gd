@@ -1,5 +1,5 @@
 extends Node2D
-
+var quantity : int
 var player
 
 func _ready() -> void:

@@ -1,4 +1,5 @@
 extends Node2D
+var item : inventoryitem = preload("uid://dx4apevx6bwcf")
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 const BUSH_01 = preload("uid://ximmruejhlsw")
@@ -36,12 +37,17 @@ func _process(delta: float) -> void:
 				growth = 0
 				grown = false
 				interact.visible = false
-				#player gets berries
+				#player gets berriess
+				for i in range(randi_range(1, 6)):
+					# drops 1-6 berries
+					var drop = preload("uid://hdt3kbyctwe4").instantiate()
+					drop.item = item
+					add_child(drop)
 	if grown == false:
 		growth_timer += delta
 		if growth_timer >= 0.5:
 			growth_timer = 0
-			if growth == 50:
+			if growth >= 50:
 				grown = true
 				berriestex()
 			if pity == 25:
