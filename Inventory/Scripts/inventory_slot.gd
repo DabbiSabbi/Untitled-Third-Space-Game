@@ -1,14 +1,18 @@
 extends Panel
 
 @onready var slot_high: Sprite2D = $slot_high
-
 @onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
+@onready var quantity_label: Label = $CenterContainer/Panel/quantity
 
+var item_resource
+var quantity : int
 var item_scene : PackedScene
 var playerv : CharacterBody2D
 func _ready() -> void:
 	if get_tree().get_first_node_in_group("Player"):
 		playerv = get_tree().get_first_node_in_group("Player")
+
+
 
 func update(item: inventoryitem):
 	if !item:
@@ -17,6 +21,8 @@ func update(item: inventoryitem):
 		item_visual.visible = true 
 		item_visual.texture = item.texture
 		item_scene = item.scene
+	item_resource = item
+	
 
 #func _physics_process(delta):
 	#if Input.is_action_just_pressed("slot_1"):
@@ -26,3 +32,13 @@ func slot_select():
 	slot_high.visible = true
 	if playerv:
 		playerv.held_item(item_scene)
+		
+
+func stacking():
+	if item_resource:
+		if item_resource.stackable:
+			quantity_label.text = str(quantity)
+			
+	
+	
+	

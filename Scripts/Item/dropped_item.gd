@@ -1,7 +1,9 @@
 extends Node2D
 @onready var itemsprite: Sprite2D = $item
 @onready var shadow: Sprite2D = $shadow
+@onready var interact: Control = $Interact
 
+var inrange : bool = false
 var distance = 30
 var item: inventoryitem
 var angle = Vector2.from_angle(deg_to_rad(randi_range(0, 360)))
@@ -31,4 +33,17 @@ func set_progress(value: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if inrange == true:
+		if Input.is_action_just_pressed("pickup"):
+			queue_free()
+
+func _on_pickup_body_entered(body: Node2D) -> void:
+	if body is player:
+		interact.visible = true
+		inrange = true
+
+
+func _on_pickup_body_exited(body: Node2D) -> void:
+		if body is player:
+			interact.visible = false
+			inrange = false

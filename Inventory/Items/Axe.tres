@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c60i7ylfaafj8" path="res://Assets/Sprites/Items/Axe.png" id="2_d6y5e"]
 
 [resource]
+resource_name = "Axe"
 script = ExtResource("1_lvppx")
 name = "Axe"
 texture = ExtResource("2_d6y5e")
