@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var target_pos = player.global_position
+	var player_angle = rad_to_deg(get_angle_to(target_pos))
 	if global_position.distance_to(target_pos) < attack_area.get_child(0).shape.radius * 1.2: #to stop when close to player
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.7)
 		ani.speed_scale = 1
@@ -32,6 +33,26 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.3)
 		ani.speed_scale = 1
 	move_and_slide()
+	#8-way movement slime animation: LEFT
+	if player_angle >= -157.5 and player_angle <= -112.5:
+		ani.play("g-left-tl")
+	if player_angle <= -157.6 and player_angle <= 157.4:
+		ani.play("g-left")
+	if player_angle >= 112.5 and player_angle <= 157.5:
+		ani.play("g-left-bl")
+	#8-way movement slime animation: RIGHT
+	if player_angle >= -67.5 and player_angle <= -22.5:
+		ani.play("g-right-tr")
+	if player_angle >= -22.6 and player_angle <= 22.5:
+		ani.play("g-right")
+	if player_angle >= 22.5 and player_angle <= 67.5:
+		ani.play("g-right-br")
+	#8-way movement slime animation: UP/DOWN
+	if player_angle >= 67.6 and player_angle <= 112.4:
+		ani.play("g-down")
+	if player_angle >= -112.6 and player_angle <= -67.6:
+		ani.play("g-up")
+
 
 func attack():
 	attacking = true
@@ -57,7 +78,7 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 func hp_update(amt):
 #	Use For Healing and Damage
-	hp = clampi(hp + amt, 0, maxhp) 
+	hp = clampi(hp + amt, 0, maxhp)
 	if amt < 0:
 		if hp > 0:
 			var damaged = create_tween()
