@@ -14,7 +14,7 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 7.0
 
-[node name="dropped item" type="Node2D" unique_id=750846164]
+[node name="dropped item" type="Node2D" unique_id=750846164 groups=["Dropped_item", "Player"]]
 script = ExtResource("1_qg7x7")
 
 [node name="item" type="Sprite2D" parent="." unique_id=2081255069]
@@ -24,7 +24,7 @@ texture = SubResource("PlaceholderTexture2D_grihl")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=1045009780]
 modulate = Color(1, 1, 1, 0.50980395)
-position = Vector2(0.9999999, 3)
+position = Vector2(1, 3)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_allw1")
 

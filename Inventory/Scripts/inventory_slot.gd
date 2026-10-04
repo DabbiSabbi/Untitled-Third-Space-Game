@@ -21,8 +21,10 @@ func update(item: inventoryitem):
 		item_visual.visible = true 
 		item_visual.texture = item.texture
 		item_scene = item.scene
+		if item.stackable == true:
+			quantity_label.visible = true
 	item_resource = item
-	
+
 
 #func _physics_process(delta):
 	#if Input.is_action_just_pressed("slot_1"):
