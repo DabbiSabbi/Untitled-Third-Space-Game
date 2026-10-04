@@ -21,17 +21,42 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var target_pos = player.global_position
+	var player_angle = rad_to_deg(get_angle_to(target_pos))
 	if global_position.distance_to(target_pos) < attack_area.get_child(0).shape.radius * 1.2: #to stop when close to player
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.7)
 		ani.speed_scale = 1
 	elif global_position.distance_to(target_pos) < range: # to walk towards player when player is in range
-		ani.speed_scale = 1.75
+		ani.speed_scale = 1.25
 		target_pos = player.global_position
 		velocity = Vector2.from_angle(get_angle_to(target_pos)) * speed  #USE THIS
 	elif velocity: #stop when player is out of range
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.3)
 		ani.speed_scale = 1
 	move_and_slide()
+	if attacking == false:
+		if global_position.distance_to(target_pos) < range:
+			#8-way movement slime animation: LEFT
+			if player_angle >= -157.5 and player_angle <= -112.5:
+				ani.play("g-left-tl")
+			elif player_angle <= -157.6 and player_angle <= 157.4:
+				ani.play("g-left")
+			elif player_angle >= 112.5 and player_angle <= 157.5:
+				ani.play("g-left-bl")
+			#8-way movement slime animation: RIGHT
+			elif player_angle >= -67.5 and player_angle <= -22.5:
+				ani.play("g-right-tr")
+			elif player_angle >= -22.6 and player_angle <= 22.5:
+				ani.play("g-right")
+			elif player_angle >= 22.5 and player_angle <= 67.5:
+				ani.play("g-right-br")
+			#8-way movement slime animation: UP/DOWN
+			elif player_angle >= 67.6 and player_angle <= 112.4:
+				ani.play("g-down")
+			elif player_angle >= -112.6 and player_angle <= -67.6:
+				ani.play("g-up")
+		else:
+			ani.play("g-idle")
+
 
 	#if rad_to_deg(get_angle_to(target_pos))
 
@@ -61,7 +86,7 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 func hp_update(amt):
 #	Use For Healing and Damage
-	hp = clampi(hp + amt, 0, maxhp) 
+	hp = clampi(hp + amt, 0, maxhp)
 	if amt < 0:
 		if hp > 0:
 			var damaged = create_tween()
