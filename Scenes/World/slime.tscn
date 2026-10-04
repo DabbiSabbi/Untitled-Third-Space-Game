@@ -3,18 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cjyxkk1vsesiw" path="res://Assets/Sprites/Enemies/Slimes-Combined-Sheet.png" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://bb5fxn52xddwc" path="res://Scripts/Enemies/slime.gd" id="1_swwnm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
-atlas = ExtResource("1_jjgbg")
-region = Rect2(336, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gbba"]
-atlas = ExtResource("1_jjgbg")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
-atlas = ExtResource("1_jjgbg")
-region = Rect2(16, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
 atlas = ExtResource("1_jjgbg")
 region = Rect2(16, 0, 16, 16)
@@ -31,27 +19,20 @@ region = Rect2(48, 0, 16, 16)
 atlas = ExtResource("1_jjgbg")
 region = Rect2(64, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(336, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gbba"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bo1nx")
-}],
-"loop": 1,
-"name": &"green-dead",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8gbba")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jjvhh")
-}],
-"loop": 1,
-"name": &"green-idle&walk",
-"speed": 3.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kry3j")
@@ -69,8 +50,32 @@ animations = [{
 "texture": SubResource("AtlasTexture_21xkr")
 }],
 "loop": 0,
-"name": &"green-uni-attack",
+"name": &"g-attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo1nx")
+}],
+"loop": 1,
+"name": &"g-dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gbba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvhh")
+}],
+"loop": 1,
+"name": &"g-right",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
@@ -91,10 +96,8 @@ cd = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"green-uni-attack"
-autoplay = "green-idle&walk"
-frame = 4
-frame_progress = 1.0
+animation = &"g-dead"
+autoplay = "g-right"
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1537768592]
 

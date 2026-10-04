@@ -27,23 +27,27 @@ func _physics_process(delta: float) -> void:
 	elif global_position.distance_to(target_pos) < range: # to walk towards player when player is in range
 		ani.speed_scale = 1.75
 		target_pos = player.global_position
-		velocity = Vector2.from_angle(get_angle_to(target_pos)) * speed
+		velocity = Vector2.from_angle(get_angle_to(target_pos)) * speed  #USE THIS
 	elif velocity: #stop when player is out of range
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.3)
 		ani.speed_scale = 1
 	move_and_slide()
 
+	#if rad_to_deg(get_angle_to(target_pos))
+
+
+
 func attack():
 	attacking = true
 	while inrange:
 		cdt.start(cd)
-		ani.play("green-uni-attack")
+		ani.play("g-attack")
 		while ani.frame != 3:
 			await ani.frame_changed
 		if inrange:
 			player.hp_update(-damage)
 		await ani.animation_finished
-		ani.animation = "green-idle&walk"
+		ani.animation = "g-right"
 		await cdt.timeout
 	attacking = false
 func _on_attack_area_body_entered(body: Node2D) -> void:
@@ -71,6 +75,6 @@ func hp_update(amt):
 			await damaged.finished
 
 	if hp == 0:
-		ani.animation = "green-dead"
+		ani.animation = "g-dead"
 		await get_tree().create_timer(0.4).timeout
 		queue_free()
