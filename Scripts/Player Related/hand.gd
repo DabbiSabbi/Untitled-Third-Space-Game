@@ -10,10 +10,10 @@ func aim():
 	#look_at(get_global_mouse_position())
 	if locked == false:
 		if player.angle >= -90 and player.angle <= 90:
-			if position.x == -7:
-				position.x = 7
-		elif position.x == 7:
-			position.x = -7
+			if position.x == -4:
+				position.x = 4
+		elif position.x == 4:
+			position.x = -4
 
 	
 func _process(delta: float) -> void:
