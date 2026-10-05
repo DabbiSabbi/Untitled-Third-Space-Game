@@ -23,16 +23,19 @@ func _process(delta: float) -> void:
 
 func use():
 	swing = create_tween()
+	var startpos : Vector2 = position
+	var startrot := rotation_degrees
 	if cdt.is_stopped():
 		cdt.start(cd)
 		locked = true
-		var startpos : Vector2 = position
-		var startrot := rotation_degrees
 		target_position = Vector2.from_angle(rotation) * 3
-		target_rotation = rotation_degrees + 25
-		swing.tween_property(self, "position", target_position + startpos, 0.2)
-		swing.tween_property(self, "rotation", deg_to_rad(target_rotation + startrot), 0.3)
-		swing.tween_property(self, "position", startpos, 0.15)
-		swing.tween_property(self, "rotation", deg_to_rad(startrot), 0.15)
+		target_rotation = startrot + 60
+		swing.set_parallel(true)
+		swing.set_ease(Tween.EASE_OUT)
+		swing.tween_property(self, "position", target_position, 0.15)
+		swing.tween_property(self, "rotation", deg_to_rad(target_rotation), 0.15)
+		await swing.step_finished
+		swing.tween_property(self, "position", startpos, 0.3)
+		swing.tween_property(self, "rotation", deg_to_rad(startrot), 0.3)
 		await swing.finished
 		locked = false
