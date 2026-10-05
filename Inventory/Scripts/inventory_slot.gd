@@ -20,7 +20,10 @@ func _ready() -> void:
 func update(item: inventoryitem):
 	if !item:
 		item_visual.visible = false
+		quantity_label.visible = false
 		item_scene = null
+		quantity = 1
+		playerv.held_item(null, get_index())
 	else:
 		item_visual.visible = true 
 		item_visual.texture = item.texture
@@ -28,7 +31,7 @@ func update(item: inventoryitem):
 		if item.stackable == true:
 			quantity_label.visible = true
 			quantity_label.text = str(quantity)
-			playerv.held_item(null, get_index())
+			#playerv.held_item(null, get_index()) IDK why i put this line here, leaving just in case< i needed it so i remember. 
 	item_resource = item
 
 
