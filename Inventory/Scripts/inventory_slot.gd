@@ -11,7 +11,7 @@ var playerv : CharacterBody2D
 var inventory
 func _ready() -> void:
 	if get_tree().get_first_node_in_group("Player"):
-		inventory = get_tree().get_first_node_in_group("Player")
+		playerv = get_tree().get_first_node_in_group("Player")
 	if get_tree().get_first_node_in_group("Inventory"):
 		inventory = get_tree().get_first_node_in_group("Inventory")
 
