@@ -1,6 +1,7 @@
 extends Node2D
 var quantity : int
 var nutrition = 3
+var health = 5
 var player
 var inventory
 var slot = 0
@@ -15,6 +16,7 @@ func use():
 	player.hung_update(nutrition) 
 	print(player.hunger)
 	inventory.slots[slot].consume(1)
+	player.hp_update(health)
 	
 
 
