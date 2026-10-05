@@ -1,6 +1,7 @@
 extends Node2D
 class_name axe
 
+var slot = 0
 var locked = false
 var target_position 
 var target_rotation

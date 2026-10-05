@@ -5,12 +5,14 @@ extends Panel
 @onready var quantity_label: Label = $CenterContainer/Panel/quantity
 
 var item_resource
-var quantity : int
+var quantity : int = 1
 var item_scene : PackedScene
 var playerv : CharacterBody2D
 func _ready() -> void:
 	if get_tree().get_first_node_in_group("Player"):
 		playerv = get_tree().get_first_node_in_group("Player")
+	if get_tree().get_first_node_in_group("Inventory"):
+		playerv = get_tree().get_first_node_in_group("Inventory")
 
 
 
@@ -23,6 +25,7 @@ func update(item: inventoryitem):
 		item_scene = item.scene
 		if item.stackable == true:
 			quantity_label.visible = true
+			quantity_label.text = str(quantity)
 	item_resource = item
 
 
@@ -33,12 +36,18 @@ func update(item: inventoryitem):
 func slot_select():
 	slot_high.visible = true
 	if playerv:
-		playerv.held_item(item_scene)
+		playerv.held_item(item_scene, get_index())
 		
+func consume(amt):
+	quantity -= amt
+	quantity_label.text = str(quantity)
+	if quantity <= 0:
+		pass
 
 func stacking():
 	if item_resource:
 		if item_resource.stackable:
+			quantity += 1
 			quantity_label.text = str(quantity)
 			
 	

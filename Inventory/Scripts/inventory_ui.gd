@@ -23,8 +23,9 @@ func pickup(item):
 	for i in items.size():
 		print("Item: ", item)
 		print("slot: ", items[i])
-		if items[i] == item:
-			pass # stack
+		if items[i] == item and slots[i].quantity + 1 <= slots[i].item_resource.maxquantity:
+			slots[i].stacking()
+			break
 		elif items[i] == null:
 			print("picked up ", item)
 			items[i] = item
