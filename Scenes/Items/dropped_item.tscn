@@ -9,12 +9,12 @@
 size = Vector2(8, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 9.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 13.0
+radius = 7.0
 
-[node name="dropped item" type="Node2D" unique_id=750846164]
+[node name="dropped item" type="Node2D" unique_id=750846164 groups=["Dropped_item", "Player"]]
 script = ExtResource("1_qg7x7")
 
 [node name="item" type="Sprite2D" parent="." unique_id=2081255069]
@@ -23,25 +23,23 @@ scale = Vector2(0.6, 0.6)
 texture = SubResource("PlaceholderTexture2D_grihl")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=1045009780]
-visible = false
 modulate = Color(1, 1, 1, 0.50980395)
-position = Vector2(1, 4)
+position = Vector2(1, 3)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_allw1")
 
 [node name="stackpickup" type="Area2D" parent="." unique_id=811074333]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stackpickup" unique_id=1785379900]
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="pickup" type="Area2D" parent="." unique_id=852520356]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup" unique_id=339351098]
 shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="Interact" type="Control" parent="." unique_id=129819919]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -68,3 +66,6 @@ theme_override_font_sizes/font_size = 8
 text = "[F] Pickup"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="body_entered" from="pickup" to="." method="_on_pickup_body_entered"]
+[connection signal="body_exited" from="pickup" to="." method="_on_pickup_body_exited"]
