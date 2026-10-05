@@ -9,6 +9,7 @@ var hunger = 20
 @export var inventory: inventory 
 @onready var hand: Node2D = $Hand
 @onready var hunger_loss: Timer = $hunger_loss
+@onready var ani: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +20,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	elif velocity.x:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction == Vector2(0,-1):
+		ani.play("forward")
+	else: 
+		ani.play("idle")
 	move_and_slide()
+	
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
