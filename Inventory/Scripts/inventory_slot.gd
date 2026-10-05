@@ -20,6 +20,7 @@ func _ready() -> void:
 func update(item: inventoryitem):
 	if !item:
 		item_visual.visible = false
+		item_scene = null
 	else:
 		item_visual.visible = true 
 		item_visual.texture = item.texture
@@ -27,6 +28,7 @@ func update(item: inventoryitem):
 		if item.stackable == true:
 			quantity_label.visible = true
 			quantity_label.text = str(quantity)
+			playerv.held_item(null, get_index())
 	item_resource = item
 
 
@@ -43,7 +45,7 @@ func consume(amt):
 	quantity -= amt
 	quantity_label.text = str(quantity)
 	if quantity <= 0:
-		pass
+		inventory.deplete(get_index())
 
 func stacking():
 	if item_resource:
