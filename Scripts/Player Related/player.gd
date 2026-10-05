@@ -53,7 +53,7 @@ func hp_update(amt):
 #	Use For Healing and Damage
 	hp = clampi(hp + amt, 0, maxhp) 
 	if hp == 0:
-		$Sprite2D.skew = -100
+		pass
 
 func hung_update(amt):
 #	Used For Hunger
