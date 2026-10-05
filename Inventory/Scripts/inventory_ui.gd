@@ -31,3 +31,7 @@ func pickup(item):
 			items[i] = item
 			update_slots()
 			break
+
+func deplete(slot):
+	items[slot] = null
+	update_slots()

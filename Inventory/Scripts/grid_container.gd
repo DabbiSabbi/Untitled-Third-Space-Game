@@ -1,5 +1,5 @@
 extends GridContainer
-var current_slot : int
+var current_slot : int = 6
 var player : CharacterBody2D
 
 func _ready() -> void:
