@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	elif velocity.x:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	if direction == Vector2(0,-1):
+	if direction == Vector2(0,1) or direction == Vector2(0,-1):
 		ani.play("forward")
 	else: 
 		ani.play("idle")
