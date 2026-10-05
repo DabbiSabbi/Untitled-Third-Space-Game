@@ -89,7 +89,6 @@ func attack():
 		if inrange:
 			player.hp_update(-damage)
 		await ani.animation_finished
-		ani.play("g-idle")
 		cdt.start(cd)
 		await cdt.timeout
 	attacking = false
