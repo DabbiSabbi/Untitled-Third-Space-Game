@@ -1,5 +1,5 @@
 extends GridContainer
-var current_slot : int
+var current_slot : int = 6
 var player : CharacterBody2D
 
 func _ready() -> void:
@@ -13,7 +13,7 @@ func slot_selection(a,b):
 			current_slot = b
 		elif current_slot == b:
 			get_child(current_slot).slot_high.visible = false
-			player.held_item(null)
+			player.held_item(null, b)
 			current_slot = 6
 		else:
 			get_child(current_slot).slot_high.visible = false

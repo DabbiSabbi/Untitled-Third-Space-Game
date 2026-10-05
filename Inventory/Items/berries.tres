@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="inventoryitem" format=3 uid="uid://dx4apevx6bwcf"]
 
-[ext_resource type="PackedScene" uid="uid://da38bj7ameno2" path="res://Scenes/Items/berry.tscn" id="1_c7mcq"]
+[ext_resource type="PackedScene" uid="uid://da38bj7ameno2" path="res://Scenes/Items/Food/berry.tscn" id="1_c7mcq"]
 [ext_resource type="Script" uid="uid://dnxae6pcgvc68" path="res://Inventory/Scripts/Inventory_item.gd" id="1_munge"]
 [ext_resource type="Texture2D" uid="uid://y0k8uhme2gmw" path="res://Assets/Sprites/Items/Berries (item).png" id="2_c7mcq"]
 
 [resource]
+resource_name = "Berries"
 script = ExtResource("1_munge")
 name = "Berries"
 texture = ExtResource("2_c7mcq")
 scene = ExtResource("1_c7mcq")
+stackable = true
+maxquantity = 32

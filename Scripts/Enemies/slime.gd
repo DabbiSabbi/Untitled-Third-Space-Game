@@ -10,7 +10,7 @@ var attacking : bool
 @export var maxhp : int # Now that it is an abberatvion I will explain it even though you know it JB. It's max health points.
 @export var speed : int # walk speed.
 @export var range : int # range for enemy to attack player in pixels.
-@export var cd : int # attack cooldown in seconds always less than attack animation time.
+@export var cd : float # attack cooldown in seconds always less than attack animation time.
 @export var regen : int
 var hp : int
 func _ready() -> void:
@@ -21,29 +21,76 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var target_pos = player.global_position
+	var player_angle = rad_to_deg(get_angle_to(target_pos))
 	if global_position.distance_to(target_pos) < attack_area.get_child(0).shape.radius * 1.2: #to stop when close to player
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.7)
 		ani.speed_scale = 1
 	elif global_position.distance_to(target_pos) < range: # to walk towards player when player is in range
-		ani.speed_scale = 1.75
+		ani.speed_scale = 1.25
 		target_pos = player.global_position
-		velocity = Vector2.from_angle(get_angle_to(target_pos)) * speed
+		velocity = Vector2.from_angle(get_angle_to(target_pos)) * speed  #USE THIS
 	elif velocity: #stop when player is out of range
 		velocity = velocity.move_toward(Vector2(0,0), speed * 0.3)
 		ani.speed_scale = 1
 	move_and_slide()
+	if attacking == false:
+		if global_position.distance_to(target_pos) < range:
+			#8-way movement slime animation: LEFT
+			if player_angle >= -157.5 and player_angle < -112.5:
+				ani.play("g-left-tl")
+			elif player_angle <= 157.5 and player_angle < -157.5:
+				ani.play("g-left")
+			elif player_angle >= 112.5 and player_angle < 157.5:
+				ani.play("g-left-bl")
+			#8-way movement slime animation: RIGHT
+			elif player_angle >= -67.5 and player_angle < -22.5:
+				ani.play("g-right-tr")
+			elif player_angle >= -22.5 and player_angle < 22.5:
+				ani.play("g-right")
+			elif player_angle >= 22.5 and player_angle < 67.5:
+				ani.play("g-right-br")
+			#8-way movement slime animation: UP/DOWN
+			elif player_angle >= 67.5 and player_angle < 112.5:
+				ani.play("g-down")
+			elif player_angle >= -112.5 and player_angle < -67.5:
+				ani.play("g-up")
+		else:
+			ani.play("g-idle")
 
 func attack():
 	attacking = true
 	while inrange:
-		cdt.start(cd)
-		ani.play("green-uni-attack")
+		var target_pos = player.global_position
+		var player_angle = rad_to_deg(get_angle_to(target_pos))
+
+	#8-way attack animation: LEFT
+		if player_angle >= -157.5 and player_angle < -112.5:
+			ani.play("g-attack-left-tl")
+		elif player_angle <= 157.5 and player_angle < -157.5:
+			ani.play("g-attack-left")
+		elif player_angle >= 112.5 and player_angle < 157.5:
+			ani.play("g-attack-left-bl")
+		#8-way attack slime animation: RIGHT
+		elif player_angle >= -67.5 and player_angle < -22.5:
+			ani.play("g-attack-right-tr")
+		elif player_angle >= -22.5 and player_angle < 22.5:
+			ani.play("g-attack-right")
+		elif player_angle >= 22.5 and player_angle < 67.5:
+			ani.play("g-attack-right-br")
+		#8-way attack slime animation: UP/DOWN
+		elif player_angle >= 67.5 and player_angle < 112.5:
+			ani.play("g-attack-down")
+		elif player_angle >= -112.5 and player_angle < -67.5:
+			ani.play("g-attack-up")
+
+
 		while ani.frame != 3:
 			await ani.frame_changed
 		if inrange:
 			player.hp_update(-damage)
 		await ani.animation_finished
-		ani.animation = "green-idle&walk"
+		ani.play("g-idle")
+		cdt.start(cd)
 		await cdt.timeout
 	attacking = false
 func _on_attack_area_body_entered(body: Node2D) -> void:
@@ -57,7 +104,7 @@ func _on_attack_area_body_exited(body: Node2D) -> void:
 
 func hp_update(amt):
 #	Use For Healing and Damage
-	hp = clampi(hp + amt, 0, maxhp) 
+	hp = clampi(hp + amt, 0, maxhp)
 	if amt < 0:
 		if hp > 0:
 			var damaged = create_tween()
@@ -71,6 +118,6 @@ func hp_update(amt):
 			await damaged.finished
 
 	if hp == 0:
-		ani.animation = "green-dead"
+		ani.animation = "g-dead"
 		await get_tree().create_timer(0.4).timeout
 		queue_free()

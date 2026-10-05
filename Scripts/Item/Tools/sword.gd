@@ -3,6 +3,7 @@ class_name sword
 
 var locked = false
 var target_position 
+var slot = 0
 @export var cd : float = 1
 @export var damage : int = 35
 @onready var cdt: Timer = $cd

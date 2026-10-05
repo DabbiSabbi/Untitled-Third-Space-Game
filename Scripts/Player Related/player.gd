@@ -36,16 +36,18 @@ func _input(event: InputEvent) -> void:
 				if hand.get_child(0).has_method("use"):
 					hand.get_child(0).use()
 
-func held_item(s):
-	print(s)
+func held_item(scene, slot):
+	print(scene)
 	print(hand.get_children())
-	if s == null and hand.get_child_count() > 0:
+	if scene == null and hand.get_child_count() > 0:
 		hand.get_child(0).queue_free()
 	elif hand.get_child_count() > 0:
 		hand.get_child(0).queue_free()
-	if s:
-		var item = s.instantiate()
+	if scene:
+		var item = scene.instantiate()
+		await get_tree().physics_frame
 		hand.add_child(item)
+		hand.get_child(0).slot = slot
 
 func hp_update(amt):
 #	Use For Healing and Damage

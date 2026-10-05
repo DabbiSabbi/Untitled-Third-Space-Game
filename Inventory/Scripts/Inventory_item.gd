@@ -5,3 +5,5 @@ class_name inventoryitem
 @export var name: String = ""
 @export var texture: Texture2D
 @export var scene: PackedScene
+@export var stackable: bool
+@export var maxquantity: int
