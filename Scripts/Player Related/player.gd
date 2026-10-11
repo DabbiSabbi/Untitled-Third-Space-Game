@@ -9,6 +9,7 @@ var hunger = 20
 @export var inventory: inventory 
 @onready var hand: Node2D = $Hand
 @onready var hunger_loss: Timer = $hunger_loss
+@onready var ani: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +20,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	elif velocity.x:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction == Vector2(0,1) or direction == Vector2(0,-1):
+		ani.play("forward")
+	else: 
+		ani.play("idle")
 	move_and_slide()
+	
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -30,22 +36,24 @@ func _input(event: InputEvent) -> void:
 				if hand.get_child(0).has_method("use"):
 					hand.get_child(0).use()
 
-func held_item(s):
-	print(s)
+func held_item(scene, slot):
+	print(scene)
 	print(hand.get_children())
-	if s == null and hand.get_child_count() > 0:
+	if scene == null and hand.get_child_count() > 0:
 		hand.get_child(0).queue_free()
 	elif hand.get_child_count() > 0:
 		hand.get_child(0).queue_free()
-	if s:
-		var item = s.instantiate()
+	if scene:
+		var item = scene.instantiate()
+		await get_tree().physics_frame
 		hand.add_child(item)
+		hand.get_child(0).slot = slot
 
 func hp_update(amt):
 #	Use For Healing and Damage
 	hp = clampi(hp + amt, 0, maxhp) 
 	if hp == 0:
-		$Sprite2D.skew = -100
+		pass
 
 func hung_update(amt):
 #	Used For Hunger

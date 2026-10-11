@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bg8kngr172vw2" path="res://Inventory/Scripts/grid_container.gd" id="3_yetw6"]
 [ext_resource type="PackedScene" uid="uid://7h4o286jluya" path="res://Inventory/Scenes/Inventory_slot.tscn" id="4_req5v"]
 
-[node name="Inventory_UI" type="Control" unique_id=1135101942]
+[node name="Inventory_UI" type="Control" unique_id=1135101942 groups=["Inventory"]]
 custom_minimum_size = Vector2(122, 26)
 layout_mode = 3
 anchors_preset = 7

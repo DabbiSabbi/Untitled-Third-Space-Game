@@ -1,6 +1,6 @@
 extends Control
-var action_name : String = "Interact"
-var action_button : String = "E"
+@export var action_name : String = "Interact"
+@export var action_button : String = "E"
 @onready var label: Label = $Label
 
 # Called when the node enters the scene tree for the first time.
