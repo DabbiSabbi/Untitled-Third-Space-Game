@@ -4,10 +4,11 @@ extends Node2D
 @onready var interact: Control = $Interact
 
 var inrange : bool = false
-var distance = 30
+var distance
 var item: inventoryitem
-var angle = Vector2.from_angle(deg_to_rad(randi_range(0, 360)))
-var curve = Vector2(-angle.y, angle.x)
+var angle
+var docurve = false
+@onready var curve = Vector2(-angle.y, angle.x)
 var progress := 0.0:
 	set(value):
 		set_progress(value)
@@ -23,7 +24,10 @@ func _ready() -> void:
 
 func spawn():
 	var drop = create_tween()
-	drop.tween_property(self, "progress", 1, 0.4)
+	if docurve == true:
+		drop.tween_property(self, "progress", 1, 0.4)
+	else:
+		drop.tween_property(self, "position", angle * distance, 0.4)
 	drop.tween_property(shadow, "visible", true, 0)
 	drop.tween_property(itemsprite, "scale", Vector2(0.5, 0.5), 0.2)
 	drop.tween_property(itemsprite, "scale", Vector2(0.6, 0.6), 0.25)
