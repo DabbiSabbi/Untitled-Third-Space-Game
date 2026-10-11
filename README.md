@@ -6,3 +6,10 @@ Health, Death, Hotbar, Tools, Slime enemy, Bush, Berries.
 Play it [here](https://dabbisabbi.itch.io/project-tangerine).
 
 ![Screenshot](https://i.ibb.co/Q3WPfy3F/Screenshot-2026-09-28-183231.png)
+
+# How To Play
+WASD for movement
+
+Keys 1-5 for slots
+
+Left Click to use held item.
