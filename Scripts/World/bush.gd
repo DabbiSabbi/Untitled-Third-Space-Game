@@ -42,6 +42,9 @@ func _process(delta: float) -> void:
 					# drops 1-6 berries
 					var drop = preload("uid://hdt3kbyctwe4").instantiate()
 					drop.item = item
+					drop.angle = Vector2.from_angle(deg_to_rad(randi_range(0, 360)))
+					drop.distance = 30
+					drop.docurve = true
 					add_child(drop)
 	if grown == false:
 		growth_timer += delta
