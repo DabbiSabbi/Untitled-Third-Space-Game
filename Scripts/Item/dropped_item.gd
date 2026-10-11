@@ -7,8 +7,8 @@ var inrange : bool = false
 var distance
 var item: inventoryitem
 var angle
-var curve : Vector2
 var docurve = false
+@onready var curve = Vector2(-angle.y, angle.x)
 var progress := 0.0:
 	set(value):
 		set_progress(value)
@@ -25,7 +25,6 @@ func _ready() -> void:
 func spawn():
 	var drop = create_tween()
 	if docurve == true:
-		curve = Vector2(-angle.y, angle.x)
 		drop.tween_property(self, "progress", 1, 0.4)
 	else:
 		drop.tween_property(self, "position", angle * distance, 0.4)
@@ -36,8 +35,7 @@ func spawn():
 	
 
 func set_progress(value: float):
-	if docurve == true:
-		position = angle * (distance * value) + (curve * sin(PI*value)*20)
+	position = angle * (distance * value) + (curve * sin(PI*value)*20)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
