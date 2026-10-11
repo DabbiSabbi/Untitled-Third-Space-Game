@@ -3,10 +3,12 @@ extends Node2D
 @onready var shadow: Sprite2D = $shadow
 @onready var interact: Control = $Interact
 
+var parent_pos : Vector2
 var inrange : bool = false
 var distance
 var item: inventoryitem
 var angle
+var start_pos: Vector2
 var docurve = false
 @onready var curve = Vector2(-angle.y, angle.x)
 var progress := 0.0:
@@ -20,14 +22,19 @@ func _ready() -> void:
 		inventory = get_tree().get_first_node_in_group("Inventory")
 	if item:
 		itemsprite.texture = item.texture
+	print(parent_pos)
+	if parent_pos:
+		position =  parent_pos
+		start_pos = position
 	spawn()
 
 func spawn():
+	print(global_position)
 	var drop = create_tween()
 	if docurve == true:
 		drop.tween_property(self, "progress", 1, 0.4)
 	else:
-		drop.tween_property(self, "position", angle * distance, 0.4)
+		drop.tween_property(self, "position", position + (angle * distance), 0.4)
 	drop.tween_property(shadow, "visible", true, 0)
 	drop.tween_property(itemsprite, "scale", Vector2(0.5, 0.5), 0.2)
 	drop.tween_property(itemsprite, "scale", Vector2(0.6, 0.6), 0.25)
@@ -35,7 +42,8 @@ func spawn():
 	
 
 func set_progress(value: float):
-	position = angle * (distance * value) + (curve * sin(PI*value)*20)
+	position = start_pos + angle * (distance * value) + (curve * sin(PI*value)*(distance*0.6))
+	itemsprite.modulate = Color(1, 1, 1, value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
