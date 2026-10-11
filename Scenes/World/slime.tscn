@@ -524,7 +524,7 @@ damage = 25
 maxhp = 90
 speed = 65
 range = 100
-cd = 0.8
+cd = 0.4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=747018619]
 sprite_frames = SubResource("SpriteFrames_yf5fn")

@@ -84,12 +84,11 @@ func attack():
 			ani.play("g-attack-up")
 
 
-		while ani.frame != 3:
+		while ani.frame >= 3:
 			await ani.frame_changed
 		if inrange:
 			player.hp_update(-damage)
 		await ani.animation_finished
-		ani.play("g-idle")
 		cdt.start(cd)
 		await cdt.timeout
 	attacking = false
