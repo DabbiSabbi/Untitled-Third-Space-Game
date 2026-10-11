@@ -113,7 +113,6 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Hand" type="Node2D" parent="." unique_id=193516953]
 position = Vector2(4, 2)
-scale = Vector2(1.0079007, 1)
 script = ExtResource("3_6t5aa")
 
 [node name="hunger_loss" type="Timer" parent="." unique_id=417156276]
