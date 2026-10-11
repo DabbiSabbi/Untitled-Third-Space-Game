@@ -7,10 +7,12 @@
 size = Vector2(6.765843, 6.1728435)
 
 [node name="Axe" type="Node2D" unique_id=1506424926]
+z_index = 1
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_7dk8h")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1332126357]
+collision_mask = 2
 monitoring = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1697991646]
@@ -27,3 +29,5 @@ texture = ExtResource("1_ik4le")
 
 [node name="cd" type="Timer" parent="." unique_id=725301023]
 one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
