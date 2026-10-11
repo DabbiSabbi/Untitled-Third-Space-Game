@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bo3hr1lwx7nlx"]
+
+[ext_resource type="Script" uid="uid://cwddx8y34t7eu" path="res://Scripts/World/tree.gd" id="1_klagr"]
+[ext_resource type="Texture2D" uid="uid://bwgg7m7rkyrtr" path="res://Assets/Sprites/Greenery/Trees-Seperate-frames.png" id="2_cgyh7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pje4"]
+atlas = ExtResource("2_cgyh7")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlaxu"]
+atlas = ExtResource("2_cgyh7")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ially"]
+atlas = ExtResource("2_cgyh7")
+region = Rect2(0, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap0xn"]
+atlas = ExtResource("2_cgyh7")
+region = Rect2(48, 64, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o4tt"]
+atlas = ExtResource("2_cgyh7")
+region = Rect2(0, 128, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8grq"]
+atlas = ExtResource("2_cgyh7")
+region = Rect2(48, 128, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pje4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlaxu")
+}],
+"loop": 0,
+"name": &"L",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ially")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap0xn")
+}],
+"loop": 0,
+"name": &"M",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o4tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8grq")
+}],
+"loop": 0,
+"name": &"S",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0u6y"]
+radius = 8.0
+height = 29.999998
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57qmd"]
+radius = 4.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eppm4"]
+radius = 7.0
+height = 14.0
+
+[node name="Tree-L" type="StaticBody2D" unique_id=301017597]
+script = ExtResource("1_klagr")
+maxhp = 18
+grownage = 230
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1050162724]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"L"
+
+[node name="destruction" type="Area2D" parent="." unique_id=706563547]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="destruction" unique_id=1342884425]
+position = Vector2(-1, 6)
+shape = SubResource("CapsuleShape2D_g4v7s")
+debug_color = Color(0.877386, 0, 0, 0.41960785)
+
+[node name="xray" type="Area2D" parent="." unique_id=1499320830]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="xray" unique_id=1634650741]
+position = Vector2(-1, -16)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_d0u6y")
+debug_color = Color(0.7882353, 0.8627451, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="xray" unique_id=1883426775]
+position = Vector2(-2, 1)
+shape = SubResource("CapsuleShape2D_57qmd")
+debug_color = Color(0.7882353, 0.8627451, 0, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003096718]
+position = Vector2(-1, 14)
+shape = SubResource("CapsuleShape2D_eppm4")
+
+[connection signal="body_entered" from="xray" to="." method="_on_xray_body_entered"]
+[connection signal="body_exited" from="xray" to="." method="_on_xray_body_exited"]

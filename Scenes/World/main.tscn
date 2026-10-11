@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://2081oaiqdqs7" path="res://Scenes/Player Related/hp_bar.tscn" id="5_1pvyk"]
 [ext_resource type="PackedScene" uid="uid://cbd3jsukalsxs" path="res://Scenes/World/slime.tscn" id="6_t55t5"]
 [ext_resource type="PackedScene" uid="uid://dpqswpmen7t5r" path="res://Scenes/World/bush.tscn" id="7_g3oxa"]
-[ext_resource type="PackedScene" uid="uid://dhosmmxdusbha" path="res://Scenes/World/tree_02.tscn" id="8_ombbc"]
+[ext_resource type="PackedScene" uid="uid://dhosmmxdusbha" path="res://Scenes/World/Trees/tree_M.tscn" id="8_ombbc"]
+[ext_resource type="PackedScene" uid="uid://doslp0fa2wna" path="res://Scenes/World/Trees/tree_S.tscn" id="9_w7l72"]
+[ext_resource type="PackedScene" uid="uid://bo3hr1lwx7nlx" path="res://Scenes/World/Trees/tree_L.tscn" id="10_yteiy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("1_wpgpo")
@@ -68,3 +70,9 @@ position = Vector2(68, -15)
 
 [node name="Tree" parent="." unique_id=882060445 instance=ExtResource("8_ombbc")]
 position = Vector2(146, -73)
+
+[node name="Tree-02" parent="." unique_id=301017597 instance=ExtResource("9_w7l72")]
+position = Vector2(188, -73)
+
+[node name="Tree-03" parent="." unique_id=972650675 instance=ExtResource("10_yteiy")]
+position = Vector2(232, -70)
