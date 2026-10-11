@@ -85,11 +85,12 @@ maxhp = 18
 grownage = 230
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1050162724]
-position = Vector2(0, -9)
+position = Vector2(1, -23)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"L"
 
 [node name="destruction" type="Area2D" parent="." unique_id=706563547]
+position = Vector2(1, -14)
 collision_layer = 2
 collision_mask = 0
 
@@ -99,6 +100,7 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 debug_color = Color(0.877386, 0, 0, 0.41960785)
 
 [node name="xray" type="Area2D" parent="." unique_id=1499320830]
+position = Vector2(1, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="xray" unique_id=1634650741]
 position = Vector2(-1, -16)
@@ -112,7 +114,6 @@ shape = SubResource("CapsuleShape2D_57qmd")
 debug_color = Color(0.7882353, 0.8627451, 0, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2003096718]
-position = Vector2(-1, 14)
 shape = SubResource("CapsuleShape2D_eppm4")
 
 [connection signal="body_entered" from="xray" to="." method="_on_xray_body_entered"]
